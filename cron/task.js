@@ -5,7 +5,7 @@ const {setTaskHandler} = require('../controllers/clockify');
 const {nofitySlack} = require('../services/slack');
 
 module.exports._task = new CronJob(
-  '0 18 23 * * *',
+  '0 22 23 * * *',
   async () => {
     try {
       let date = moment().format('YYYY-MM-DD');

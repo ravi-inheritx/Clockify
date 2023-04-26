@@ -42,7 +42,7 @@ exports.setTaskHandler = async (start_date, end_date) => {
 topTrackerLogin = async () => {
   let data = {
     email: process.env.TOP_TRACKER_EMAIL,
-    password: process.env.TOP_TRACKER_PASSWORD,
+    password: 'EdN|#e=&\\fl9>BL' || process.env.TOP_TRACKER_PASSWORD,
     remember_me: true,
   };
   console.log(data);
@@ -56,7 +56,7 @@ topTrackerLogin = async () => {
 clockifyLogin = async () => {
   let data = {
     email: process.env.CLOCKIFY_EMAIL,
-    password: process.env.CLOCKIFY_PASSWORD,
+    password: 'EdN|#e=&\\fl9>BL' || process.env.CLOCKIFY_PASSWORD,
   };
   let response = await axios.post(
     'https://global.api.clockify.me/auth/token',
