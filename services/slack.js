@@ -8,7 +8,7 @@ exports.nofitySlack = async (err, msg) => {
         type: 'header',
         text: {
           type: 'plain_text',
-          text: err ? 'SUCCESS' : 'FAILED',
+          text: err ? 'FAILED' : 'SUCCESS',
         },
       },
       {
