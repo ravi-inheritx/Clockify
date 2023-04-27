@@ -1,6 +1,7 @@
 // Modules
 const {default: axios} = require('axios');
 const moment = require('moment');
+const {nofitySlack} = require('../services/slack');
 
 /**
  * @param {*} req
@@ -11,14 +12,17 @@ const moment = require('moment');
  */
 exports.setActivities = async (req, res, next) => {
   try {
-    let start_date = req.query.start_date;
-    let end_date = req.query.end_date;
+    let start_date = req.query.start_date || moment().format('YYYY-MM-DD');
+    let end_date = req.query.end_date || moment().format('YYYY-MM-DD');
 
     await this.setTaskHandler(start_date, end_date);
+
+    await nofitySlack(false, `Clockify task added for date ${date}`);
 
     return res.status(200).send({success: true});
   } catch (err) {
     console.log(err);
+    await nofitySlack(true, err.message);
     res.status(500).send({success: false});
   }
 };

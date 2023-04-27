@@ -10,7 +10,6 @@ module.exports._task = new CronJob(
     try {
       let date = moment().format('YYYY-MM-DD');
       await setTaskHandler(date, date);
-      await nofitySlack(false, `Clockify task added for date ${date}`);
     } catch (err) {
       await nofitySlack(true, err.message);
     }
