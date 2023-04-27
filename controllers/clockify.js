@@ -17,7 +17,7 @@ exports.setActivities = async (req, res, next) => {
 
     await this.setTaskHandler(start_date, end_date);
 
-    await nofitySlack(false, `Clockify task added for date ${date}`);
+    await nofitySlack(false, `Clockify task added for date ${start_date}`);
 
     return res.status(200).send({success: true});
   } catch (err) {

@@ -13,5 +13,4 @@ app.use('/api/clockify', require('./routes/clockify'));
 
 app.listen(5000, async() => {
   console.log('app is running ');
-  cron._task.start();
 });
